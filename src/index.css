@@ -1,0 +1,92 @@
+/* CSS 초기화 */
+* {
+  box-sizing: border-box;
+}
+
+/* HTML, Body 초기화 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #F7F3E9;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Root 앱 컨테이너 설정 */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: #F36B4A;
+  color: #fff;
+}
+
+/* 공통 애니메이션 */
+@keyframes stw-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes stw-steam {
+  0% { opacity: 0; transform: translateY(8px); }
+  40% { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-14px); }
+}
+
+@keyframes stw-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes stw-pulse {
+  0% { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes stw-stamp {
+  0% { transform: scale(1.8) rotate(-24deg); opacity: 0; }
+  60% { transform: scale(0.94) rotate(-10deg); opacity: 1; }
+  100% { transform: scale(1) rotate(-12deg); opacity: 1; }
+}
+
+@keyframes stw-dash {
+  to { stroke-dashoffset: -200; }
+}
+
+@keyframes stw-pop {
+  0% { transform: scale(0.96); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.stw-steam path {
+  animation: stw-steam 3.2s ease-in-out infinite;
+}
+
+.stw-steam path:nth-of-type(2) { animation-delay: 1s; }
+.stw-steam path:nth-of-type(3) { animation-delay: 2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
